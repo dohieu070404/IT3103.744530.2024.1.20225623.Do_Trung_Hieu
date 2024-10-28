@@ -1,0 +1,1 @@
+- Có, vì Java cho phép bạn tạo nhiều phương thức khởi tạo (constructor) cho một lớp với các danh sách tham số khác nhau, đây được gọi là nạp chồng phương thức khởi tạo (constructor overloading). Mỗi phương thức khởi tạo có thể có số lượng tham số khác nhau hoặc kiểu tham số khác nhau, cho phép bạn tạo các đối tượng của lớp theo nhiều cách khác nhau.
