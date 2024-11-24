@@ -1,0 +1,4 @@
+- Các phương thức truy cập (getter) được sử dụng trong lập trình hướng đối tượng để cung cấp quyền truy cập vào các thuộc tính riêng tư của một lớp.Vì thế để không làm giảm tính toàn vẹn của dữ liệu hoặc làm phức tạp hóa thiết kế lớp chỉ nên sử dụng khi:
+	+ Sử dụng getter để cung cấp thông tin về trạng thái của một đối tượng mà không cho phép thay đổi trực tiếp thuộc tính đó
+	+ Khi dùng getter để thực hiện một số phép tính hoặc xử lý dữ liệu trước khi trả về giá trị. Điều này cho phép bạn duy trì tính chất động cho dữ liệu mà không cần thay đổi thuộc tính.
+	+Khi đảm bào và tuân thủ nguyên tắc đóng gói (Encapsulation)
