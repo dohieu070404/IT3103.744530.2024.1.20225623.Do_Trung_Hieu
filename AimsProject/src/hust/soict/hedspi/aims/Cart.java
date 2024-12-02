@@ -12,6 +12,7 @@ public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
     private ArrayList<Media> itemsOrdered = new ArrayList<>();
     private int qtyOrdered = 0;
+    
 
     // Add and remove media from cart
     public String addMedia(Media media) throws LimitExceededException {

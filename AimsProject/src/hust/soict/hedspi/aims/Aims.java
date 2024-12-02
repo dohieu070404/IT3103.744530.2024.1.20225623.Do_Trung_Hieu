@@ -11,10 +11,104 @@ public class Aims {
     private static Cart cart = new Cart();
     
     public static void updateStoreMenu(Scanner scanner) {
-        System.out.println("Updating Store Menu...");
-       
+        boolean back = false;
+        while (!back) {
+            System.out.println("Updating Store Menu...");
+            System.out.println("Options:");
+            System.out.println("1. Add media to store");
+            System.out.println("2. Remove media from store");
+            System.out.println("3. Back");
+
+            int option = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (option) {
+                case 1:
+                    addMediaToStore(scanner);
+                    break;
+                case 2:
+                    removeMediaFromStore(scanner);
+                    break;
+                case 3:
+                    clearConsole();
+                    back = true;
+                    break;
+                default:
+                    clearConsole();
+                    System.out.println("Invalid option, please choose again.");
+                    break;
+            }
+        }
     }
 
+private static void addMediaToStore(Scanner scanner) {
+    System.out.println("Choose the media type to add (1. DVD, 2. Book, 3. CD): ");
+    int mediaType = scanner.nextInt();
+    scanner.nextLine(); // Đọc dòng mới
+
+    switch (mediaType) {
+        case 1:
+            System.out.println("Enter DVD title: ");
+            String dvdTitle = scanner.nextLine();
+            System.out.println("Enter DVD category: ");
+            String dvdCategory = scanner.nextLine();
+            System.out.println("Enter DVD director: ");
+            String dvdDirector = scanner.nextLine();
+            System.out.println("Enter DVD length: ");
+            int dvdLength = scanner.nextInt();
+            System.out.println("Enter DVD cost: ");
+            float dvdCost = scanner.nextFloat();
+            scanner.nextLine();  // Đọc dòng mới
+
+            DigitalVideoDisc dvd = new DigitalVideoDisc(dvdTitle, dvdCategory, dvdDirector, dvdLength, dvdCost);
+            store.addMedia(dvd);
+            System.out.println("DVD added to store!");
+            break;
+        case 2:
+            System.out.println("Enter book title: ");
+            String bookTitle = scanner.nextLine();
+            System.out.println("Enter book category: ");
+            String bookCategory = scanner.nextLine();
+            System.out.println("Enter book cost: ");
+            float bookCost = scanner.nextFloat();
+            scanner.nextLine(); // Đọc dòng mới
+
+            Book book = new Book(bookTitle, bookCategory, bookCost);
+            store.addMedia(book);
+            System.out.println("Book added to store!");
+            break;
+        case 3:
+            System.out.println("Enter CD title: ");
+            String cdTitle = scanner.nextLine();
+            System.out.println("Enter CD category: ");
+            String cdCategory = scanner.nextLine();
+            System.out.println("Enter CD artist: ");
+            String cdArtist = scanner.nextLine();
+            System.out.println("Enter CD cost: ");
+            float cdCost = scanner.nextFloat();
+            scanner.nextLine(); // Đọc dòng mới
+
+            CompactDisc cd = new CompactDisc(cdTitle, cdCategory, cdArtist, cdCost);
+            store.addMedia(cd);
+            System.out.println("CD added to store!");
+            break;
+        default:
+            System.out.println("Invalid media type!");
+            break;
+    }
+}
+
+private static void removeMediaFromStore(Scanner scanner) {
+    System.out.println("Enter the title of the media to remove: ");
+    String title = scanner.nextLine();
+    Media media = store.search(title);
+    if (media != null) {
+        store.removeMedia(media);
+        System.out.println("Media removed from store!");
+    } else {
+        System.out.println("Media not found.");
+    }
+}
 
 
     public static void main(String[] args) {
@@ -140,6 +234,7 @@ public class Aims {
             }
         }
     }
+    
 
     private static void viewMediaDetails(Scanner scanner) {
         System.out.println("Enter the title of the media: ");
